@@ -34,7 +34,15 @@
     </div>
     <h1>This page doesn't exist.</h1>
     <p>The address may have changed, or the link may be incomplete.</p>
-    <a class="btn" href="/">Back to the portfolio</a>
+    <a class="btn" id="home" href="/reem-portfolio/">Back to the portfolio</a>
+  <script>
+    // on github.io the site lives under /<repo>/ ; on a custom domain it lives at /
+    (function () {
+      var host = location.hostname, path = location.pathname.split("/").filter(Boolean);
+      var home = (host.endsWith("github.io") && path.length) ? "/" + path[0] + "/" : "/";
+      document.getElementById("home").setAttribute("href", home);
+    })();
+  </script>
   </div>
 </body>
 </html>
